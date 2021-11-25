@@ -109,13 +109,13 @@
                 </ol>
                 <div class="carousel-inner back">
                     <div class="carousel-item back active">
-                        <img class="d-block w-100" src="https://user-images.githubusercontent.com/93121928/143430590-9d34e894-4d15-44f1-bd1d-e0a1c855f32b.jpeg" style="width: 250px;" alt="img1">
+                        <img class="d-block w-100" src="https://user-images.githubusercontent.com/93121928/143431932-a24dfe87-a9cc-4bcb-b109-5afbc1a37bd4.png" style="width: 250px;" alt="img1">
                     </div>
                     <div class="carousel-item back">
-                        <img class="d-block w-100" src="https://user-images.githubusercontent.com/93121928/143430590-9d34e894-4d15-44f1-bd1d-e0a1c855f32b.jpeg" style="width: 250px;" alt="img2">
+                        <img class="d-block w-100" src="https://user-images.githubusercontent.com/93121928/143431932-a24dfe87-a9cc-4bcb-b109-5afbc1a37bd4.png" style="width: 250px;" alt="img2">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://user-images.githubusercontent.com/93121928/143430590-9d34e894-4d15-44f1-bd1d-e0a1c855f32b.jpeg" style="width: 250px;" alt="img3">
+                        <img class="d-block w-100" src="https://user-images.githubusercontent.com/93121928/143431932-a24dfe87-a9cc-4bcb-b109-5afbc1a37bd4.png" style="width: 250px;" alt="img3">
                     </div>
                 </div>
                
@@ -147,7 +147,45 @@
             </div>
         </div>
     </div>
+ <script>
 
+
+        function incrementValue(e) {
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+            if (!isNaN(currentVal)) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
+        }
+
+        function decrementValue(e) {
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+            if (!isNaN(currentVal) && currentVal > 0) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
+        }
+
+        $('.input-group').on('click', '.button-plus', function (e) {
+            incrementValue(e);
+        });
+
+        $('.input-group').on('click', '.button-minus', function (e) {
+            decrementValue(e);
+        });
+
+
+    </script>
   
 </body>
 </html>
